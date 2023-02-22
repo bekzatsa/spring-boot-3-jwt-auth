@@ -1,0 +1,41 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring-3-jwt-auth
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      platform: postgres
+
+com:
+  bekzatsk:
+    authservice:
+      jwt:
+        access-token:
+          validity: 30
+        refresh-token:
+          validity: 5
+        secret-key: 093617ebfa4b9af9700db274ac204ffa34195494d97b9c26c23ad561de817926
+
+      open-api:
+        api-version: 1.0.0
+        contact:
+          email: bekzat.saylaubay@gmail.com
+          name: Bekzat Sailaubayev
+          url: https://www.linkedin.com/in/bekzat-sk
+        description: Kotlin Backend application using Spring-security to implement JWT based Authentication and Authorization
+        security:
+          bearer-format: JWT
+          name: AuthenticationBearer
+          scheme: bearer
+        title: Auth-service
